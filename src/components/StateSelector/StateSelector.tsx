@@ -5,6 +5,7 @@ import { fetchallStatesData } from '../../actions/allStatesTotalDataAction'
 import { IAllStatesTotalData } from '../../reducers/allStatesTotalDataReducer';
 import './StateSelector.css'
 import * as Plotly from 'plotly.js';
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 
 function StateSelector() {
   const [totalData, setTotalData] = useState({})
@@ -98,6 +99,7 @@ function StateSelector() {
       setFilteredData(allStatesTotalData)
     }
   }
+  const position: any = [20.5937, 78.9629];
 
   return (
     <div>
@@ -137,6 +139,19 @@ function StateSelector() {
       <div className="pieAndChartSection">
         <div id="pieChart" style={{ width: '600px', height: '500px' }}></div>
         <div id="barChart" style={{ width: '600px', height: '500px' }}></div>
+      </div>
+      <div className="container">
+        <Map center={position} zoom={10}>
+          <TileLayer
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+          />
+          <Marker position={position}>
+            <Popup>
+              <span>State<br /> Count</span>
+            </Popup>
+          </Marker>
+        </Map>
       </div>
     </div>
   )

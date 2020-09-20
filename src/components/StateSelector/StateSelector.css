@@ -33,3 +33,14 @@ tr:nth-child(even) {
   border-radius: 50%;
   display: inline-block;
 }
+
+.mapView{
+  height: 500px;
+  width: 100%;
+  margin: 50px;
+}
+.leaflet-container {
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+}
