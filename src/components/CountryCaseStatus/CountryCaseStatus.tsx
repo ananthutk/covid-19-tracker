@@ -19,7 +19,7 @@ function CountryCaseStatus() {
 
 
   return (
-    <div className={'mainSection'}>
+    <div className="mainSection">
       <div className="subCardDiv">
         <div className="caseTitle">Total Confirmed Cases</div>
         <div className="caseCount">{countryData.confirmed}</div>
