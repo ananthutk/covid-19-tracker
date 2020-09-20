@@ -1,0 +1,24 @@
+.mainSection{
+  display:flex;
+  background-color: #dfe9ed;
+  margin: 20px;
+  height: 100px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.subCardDiv{
+  background-color: #67aac7;
+  height: 70%;
+  width: 20%;
+  color: white;
+  box-shadow: 5px 5px 5px #3b728a;
+}
+
+.caseTitle{
+  margin: 7px;
+}
+
+.caseCount{
+  margin: 7px;
+}
