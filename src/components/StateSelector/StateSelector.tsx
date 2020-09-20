@@ -6,6 +6,7 @@ import { IAllStatesTotalData } from '../../reducers/allStatesTotalDataReducer';
 import './StateSelector.css'
 import * as Plotly from 'plotly.js';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+import MapView from '../MapView/MapView';
 
 function StateSelector() {
   const [totalData, setTotalData] = useState({})
@@ -32,7 +33,7 @@ function StateSelector() {
   const pieDeaths = Object.values(filteredData).reduce((t: number, { deaths }: any) => t + deaths, 0)
   // console.log('pieData', pieData)
   console.log('pieConfirmedtotal-', pieConfirmedtotal, ',pieActive-', pieActive, ',-pieRecovered-', pieRecovered, '-pieDeaths', pieDeaths)
-  debugger
+  // debugger
   useEffect(() => {
     var data: any = [{
       values: [pieConfirmedtotal, pieActive, pieRecovered, pieDeaths],
@@ -136,22 +137,21 @@ function StateSelector() {
           ))}
         </table>
       </div>
-      <div className="pieAndChartSection">
-        <div id="pieChart" style={{ width: '600px', height: '500px' }}></div>
-        <div id="barChart" style={{ width: '600px', height: '500px' }}></div>
-      </div>
       <div className="container">
-        <Map center={position} zoom={10}>
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-          />
-          <Marker position={position}>
-            <Popup>
-              <span>State<br /> Count</span>
-            </Popup>
-          </Marker>
-        </Map>
+        <div className="row">
+          <div id="pieChart" className="col 4  " ></div>
+          <div id="barChart" className="col 4  " ></div>
+          <div className="col 4  ">
+            <MapView
+              filteredData={filteredData}
+              pieConfirmedTotal={pieConfirmedtotal}
+              pieActive={pieActive}
+              pieRecovered={pieRecovered}
+              pieDeaths={pieDeaths}
+            />
+          </div>
+
+        </div>
       </div>
     </div>
   )

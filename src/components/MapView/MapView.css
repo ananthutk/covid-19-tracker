@@ -1,0 +1,11 @@
+/* @import 'leaflet/dist/leaflet.css'; */
+
+.mapContainer{
+  border: 1px solid red;
+}
+
+.leaflet-container {
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+}
