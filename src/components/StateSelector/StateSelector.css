@@ -39,6 +39,9 @@ tr:nth-child(even) {
   width: 100%;
   margin: 50px;
 }
+.container{
+  margin-bottom: 100px;
+}
 .leaflet-container {
   height: 400px;
   width: 100%;
