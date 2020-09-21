@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
-import CountryCaseStatus from '../CountryCaseStatus/CountryCaseStatus';
 import { fetchallStatesData } from '../../actions/allStatesTotalDataAction'
 import { IAllStatesTotalData } from '../../reducers/allStatesTotalDataReducer';
 import './StateSelector.css'
 import * as Plotly from 'plotly.js';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import MapView from '../MapView/MapView';
 
 function StateSelector() {
@@ -44,7 +42,7 @@ function StateSelector() {
 
     var layout = {
       height: 400,
-      width: 500
+      width: 550
     };
 
     var bardata = [
@@ -104,7 +102,7 @@ function StateSelector() {
 
   return (
     <div>
-      <div>
+      <div className="container">
         <label style={{ padding: '10px' }}>Filter By State</label>
 
         <select onChange={(e) => setcurrentStateFn(e.target.value)} style={{ width: '85%', padding: '10px' }}>
@@ -113,13 +111,13 @@ function StateSelector() {
             return (
               <option key={item.state} value={item.state}>{item.state} - ({item.id})</option>
             );
-          })}
+          })}fluid
         </select>
       </div>
-      <div className="mainTableSection">
+      {/* <div className="mainTableSection">
 
         <table>
-          <tr>
+          <tr>fluid
             <th>State</th>
             <th>Total Confirmed Cases</th>
             <th>Active Cases</th>
@@ -136,12 +134,56 @@ function StateSelector() {
             </tr>
           ))}
         </table>
-      </div>
+      </div> */}
       <div className="container">
         <div className="row">
-          <div id="pieChart" className="col 4  " ></div>
-          <div id="barChart" className="col 4  " ></div>
-          <div className="col 4  ">
+          <div id="pieChart" className="col-sm-12 col-md-6 col-lg-6  " ></div>
+          <div id="barChart" className="col-sm-12 col-md-6 col-lg-6  " ></div>
+          {/* <div className="col-sm-12 col-md-12 col-lg-4  ">
+            <MapView
+              filteredData={filteredData}
+              pieConfirmedTotal={pieConfirmedtotal}
+              pieActive={pieActive}
+              pieRecovered={pieRecovered}
+              pieDeaths={pieDeaths}
+            />
+          </div> */}
+        </div>
+      </div>
+
+
+      <div className="mainTableSection">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <table>
+                <tr>
+                  <th>State</th>
+                  <th>Total Confirmed Cases</th>
+                  <th>Active Cases</th>
+                  <th>Recovered Cases</th>
+                  <th>Deaths</th>
+                </tr>
+                {Object.values(filteredData).map((item: any) => (
+                  <tr>
+                    <td>{item.state}</td>
+                    <td>{item.confirmed}</td>
+                    <td>{item.active}</td>
+                    <td>{item.recovered}</td>
+                    <td>{item.deaths}</td>
+                  </tr>
+                ))}
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
             <MapView
               filteredData={filteredData}
               pieConfirmedTotal={pieConfirmedtotal}
@@ -150,9 +192,9 @@ function StateSelector() {
               pieDeaths={pieDeaths}
             />
           </div>
-
         </div>
       </div>
+
     </div>
   )
 }

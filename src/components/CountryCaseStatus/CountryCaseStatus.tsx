@@ -14,27 +14,43 @@ function CountryCaseStatus() {
   useEffect(() => {
     // console.log('component mounted data', countryData)
     dispatch(fetchCountryData())
-  }, [])  
-
-
+  }, [])
 
   return (
-    <div className="mainSection">
-      <div className="subCardDiv">
-        <div className="caseTitle">Total Confirmed Cases</div>
-        <div className="caseCount">{countryData.confirmed}</div>
-      </div>
-      <div className="subCardDiv">
-        <div className="caseTitle">Active Cases</div>
-        <div className="caseCount">{countryData.active}</div>
-      </div>
-      <div className="subCardDiv">
-        <div className="caseTitle">Recovered Cases</div>
-        <div className="caseCount">{countryData.recovered}</div>
-      </div>
-      <div className="subCardDiv">
-        <div className="caseTitle">Deaths</div>
-        <div className="caseCount">{countryData.deaths}</div>
+    <div className="container mainSection">
+      <div className="row">
+        <div className="col-sm-12 col-md-3 col-lg-3">
+          <div className="card subCardDiv confirmed">
+            <div className="card-body">
+              <div>Total Confirmed Cases</div>
+              <div>{countryData.confirmed}</div>
+            </div>
+          </div>
+        </div>
+        <div className="col-sm-12 col-md-3 col-lg-3">
+          <div className="card subCardDiv active">
+            <div className="card-body">
+              <div>Active Cases</div>
+              <div>{countryData.active}</div>
+            </div>
+          </div>
+        </div>
+        <div className="col-sm-12 col-md-3 col-lg-3">
+          <div className="card subCardDiv">
+            <div className="card-body recovered">
+              <div>Recovered Cases</div>
+              <div>{countryData.recovered}</div>
+            </div>
+          </div>
+        </div>
+        <div className="col-sm-12 col-md-3 col-lg-3">
+          <div className="card subCardDiv deaths">
+            <div className="card-body">
+              <div>Deaths</div>
+              <div>{countryData.deaths}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

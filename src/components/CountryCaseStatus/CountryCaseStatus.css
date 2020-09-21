@@ -1,24 +1,30 @@
 .mainSection{
-  display:flex;
-  background-color: #dfe9ed;
-  margin: 20px;
-  height: 100px;
-  justify-content: space-around;
-  align-items: center;
+  margin-bottom: 50px !important;
 }
 
 .subCardDiv{
-  background-color: #67aac7;
-  height: 70%;
-  width: 20%;
+  /* background-color: #67aac7; */
+  background-color: #fff;
   color: white;
-  box-shadow: 5px 5px 5px #3b728a;
+  /* box-shadow: 5px 5px 5px #3b728a; */
+
 }
 
-.caseTitle{
-  margin: 7px;
+.subCardDiv:hover{
+box-shadow: 2px 2px 2px #3b728a36;
 }
 
-.caseCount{
-  margin: 7px;
+.deaths{
+  color: #ea433f;
+}
+.active{
+  color: #00aeff;
+}
+
+.recovered{
+  color: #00bf4f;
+}
+
+.confirmed{
+  color: #ff8f00
 }

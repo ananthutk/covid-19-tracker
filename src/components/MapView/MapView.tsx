@@ -60,7 +60,7 @@ function MapView({ filteredData, pieConfirmedTotal, pieActive, pieRecovered, pie
       />
       <Marker position={position}>
         <Popup>
-          {currentPlace}<br />total confirmed -{totalConfirmed} <br /> active -{active}<br /> recovered -{recovered}<br /> deaths -{deaths}
+          {currentPlace}<br />total confirmed - {totalConfirmed} <br /> active - {active}<br /> recovered - {recovered}<br /> deaths - {deaths}
         </Popup>
       </Marker>
     </Map>
